@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IPAP - Panel docente</title>
+    <link rel="icon" href="img/ipap-favicon-32.png" type="image/png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <style type="text/tailwindcss">
+        @theme {
+            --color-barra: #0d3b52;
+            --color-verde: #1a8f5e;
+            --color-texto: #24313a;
+            --color-fondo: #f4f6f7;
+            --color-muted: #5b6b75;
+            --font-sans: "Roboto", sans-serif;
+        }
+    </style>
+</head>
+
+<body class="flex min-h-screen flex-col bg-fondo font-sans text-texto">
+    <header class="bg-barra shadow-md">
+        <div class="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-4 sm:px-6">
+            <img src="img/ipap-logo-horizontal-blanco.png" alt="IPAP" class="h-12 w-auto sm:h-16">
+            <p class="text-sm text-white/80">Panel docente</p>
+        </div>
+    </header>
+
+    <main class="mx-auto w-full max-w-6xl flex-1 px-4 py-8 sm:px-6 sm:py-10">
+        <section class="rounded-2xl bg-white p-6 shadow-sm sm:p-8">
+            <h1 class="text-3xl font-bold text-barra">Panel docente</h1>
+            <p class="mt-2 text-muted">Docente: Laura Ríos</p>
+            <p class="mt-1 text-sm text-muted">Materia: Economía del sector público</p>
+            <p class="mt-1 text-sm text-muted">Para rendir el final hay que tener los 2 parciales aprobados (6 o más). El final es la nota de la materia.</p>
+        </section>
+
+        <section class="mt-8">
+            <div class="mb-4 flex flex-wrap items-center justify-between gap-3 border-b border-barra/20 pb-3">
+                <h2 class="text-xl font-bold text-barra">Cargar / editar notas</h2>
+                <button type="button" id="btn-editar"
+                    class="rounded-full bg-barra px-4 py-2 text-sm font-semibold text-white hover:bg-verde">
+                    Editar
+                </button>
+            </div>
+
+            <form id="form-notas" class="rounded-2xl bg-white p-5 shadow-sm sm:p-6">
+                <div class="grid gap-4 sm:grid-cols-3">
+                    <div>
+                        <label for="parcial1" class="mb-1.5 block text-sm font-medium">Parcial 1</label>
+                        <input type="number" id="parcial1" min="1" max="10" disabled
+                            class="w-full rounded-xl border border-slate-200 bg-fondo px-4 py-3 disabled:opacity-60">
+                    </div>
+                    <div>
+                        <label for="parcial2" class="mb-1.5 block text-sm font-medium">Parcial 2</label>
+                        <input type="number" id="parcial2" min="1" max="10" disabled
+                            class="w-full rounded-xl border border-slate-200 bg-fondo px-4 py-3 disabled:opacity-60">
+                    </div>
+                    <div>
+                        <label for="final" class="mb-1.5 block text-sm font-medium">Examen final</label>
+                        <input type="number" id="final" min="1" max="10" disabled
+                            class="w-full rounded-xl border border-slate-200 bg-fondo px-4 py-3 disabled:opacity-60">
+                        <p id="aviso" class="mt-1 text-xs text-muted">Tocá "Editar" para modificar.</p>
+                    </div>
+                </div>
+
+                <p id="error" class="mt-2 hidden text-sm text-red-600"></p>
+
+                <div id="botones" class="mt-4 hidden flex flex-wrap justify-end gap-3">
+                    <button type="button" id="btn-cancelar"
+                        class="rounded-full border border-barra/20 px-6 py-3 text-sm font-semibold text-barra hover:bg-fondo">
+                        Cancelar
+                    </button>
+                    <button type="submit"
+                        class="rounded-full bg-barra px-6 py-3 text-sm font-semibold text-white hover:bg-verde">
+                        Guardar notas
+                    </button>
+                </div>
+
+                <p id="exito" class="mt-3 hidden rounded-xl bg-verde/10 px-4 py-2 text-sm text-verde"></p>
+            </form>
+        </section>
+
+        <section class="mt-8">
+            <div class="mb-4 flex flex-wrap items-end justify-between gap-3 border-b border-barra/20 pb-3">
+                <h2 class="text-xl font-bold text-barra">Alumno: Pedrito Pérez</h2>
+                <p id="promedio" class="text-sm font-semibold text-barra">Promedio: -</p>
+            </div>
+            <div class="overflow-x-auto rounded-2xl bg-white shadow-sm">
+                <table class="mb-0 w-full border-collapse text-left text-sm">
+                    <thead>
+                        <tr class="bg-barra text-white">
+                            <th class="px-4 py-3">Materia</th>
+                            <th class="px-4 py-3">Parcial 1</th>
+                            <th class="px-4 py-3">Parcial 2</th>
+                            <th class="px-4 py-3">Final</th>
+                            <th class="px-4 py-3">Estado</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tabla"></tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <footer class="mt-auto bg-barra text-white">
+        <div class="mx-auto max-w-6xl px-4 py-6 text-center text-sm">
+            IPAP - Panel docente - 2026
+        </div>
+    </footer>
+
+    <script src="js/datos.js"></script>
+    <script src="js/docente/docente.js"></script>
+</body>
+
+</html>

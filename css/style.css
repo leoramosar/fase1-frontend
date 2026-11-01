@@ -1,3 +1,4 @@
+/* Variables de color del instituto */
 :root {
     --color-barra: #0d3b52;
     --color-verde: #1a8f5e;
@@ -18,200 +19,23 @@ body {
     line-height: 1.5;
     margin: 0;
 }
- 
-.encabezado {
-    background-color: var(--color-barra);
-    padding-bottom: 12px;
-}
 
-.logo {
-    display: inline-block;
-    height: auto;
-    width: 350px;
-    padding: 10px;
-}
-
-.centrar-texto {
-    display: block;
-    text-align: center;
-    margin-top: 100px;
-}
-
-label,
-input {
-    display: block;
-    align-self: center;
-}
-
-input {
-    box-sizing: border-box;
-}
-
-.informacion {
-    display: flex;
-    justify-content: center;
-    gap: 40px;
-    margin: 100px 0;
-}
-
-.informacion img {
-    width: 300px;
-    max-width: 100%;
-    display: block;
-}
-
-.cursos {
-    font-size: 0;
-}
-
-.container {
-    max-width: 1000px;
-    margin: 0 auto;
-}
-
-.login {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    margin: 0 auto;
-    max-width: 300px;
-}
-
-.login input {
-    width: 100%;
-}
-
-.botonlogin {
-    align-self: center;
-    padding: 6px 24px;
-    background-color: var(--color-barra);
-    color: var(--color-fondo);
-    border: 2px solid var(--color-verde);
-    border-radius: 3rem;
-    transition: all 0.5s;
-}
-
-.botonlogin:hover { 
-    background: var(--color-verde);
-}
-
-.redes {
-    display: flex;
-    justify-content: center;
-    gap: 16px;
-    margin: 24px 0;
-}
-
-.redes a {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 44px;
-    height: 44px;
-    border-radius: 50%;
-    background: var(--color-barra);
-    color: #f8f6f2;
-    font-size: 22px;
-    text-decoration: none;
-}
-
-.redes a:hover {
-    background: var(--color-verde);
-}
-
-footer {
-    border-top: 1px solid var(--color-barra);
-    padding: 1rem 0;
-    font-size: .9rem;
-}
-
-.menu ul {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    list-style: none;
-    margin: 12px 0 0;
-    padding: 0;
-}
-
-.menu a {
-    display: block;
-    padding: 8px 12px;
-    border-radius: 6px;
-    background: rgba(255, 255, 255, 0.12);
-    color: #ffffff;
-    font-size: 14px;
-    text-decoration: none;
-}
-
-.menu a:hover {
-    background: rgba(255, 255, 255, 0.25);
-}
-
-.menu a.activo {
-    background: var(--color-verde);
-    font-weight: 700;
-}
-
-.secciontitulo {
- border-bottom: 1px solid var(--color-barra);
-    padding: 1rem 0;
-    font-size: 1.5rem;
-    color: var(--color-barra);
-    margin: 0 0 16px;
-}
-
-.novedad {
-    background: #ffffff;
-    border-left: 4px solid var(--color-verde);
-    border-radius: 8px;
-    padding: 12px 16px;
-    margin-bottom: 12px;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
-}
-
-.cuadro {
-    background: #ffffff;
-    border-radius: 8px;
-    padding: 12px 16px;
-    margin-bottom: 12px;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
-}
-
-.novedad time {
-    font-size: 12px;
-    color: #5b6b75;
-}
-
-.novedad h3 {
-    margin: 4px 0;
-    font-size: 16px;
-}
-
-.novedad p {
-    margin: 0;
-}
-
-.barracalendario {
-    display: block;
-    height: auto;
-    width: 100%;
-}
-
+/* Tablas (perfil.html) */
 table {
-  border-collapse: collapse;
-  width: 100%;
-  margin-bottom: 20px;
-  border-radius: 5px;
+    border-collapse: collapse;
+    width: 100%;
+    margin-bottom: 20px;
+    border-radius: 5px;
 }
 
-th, td {
-  border: 1px solid #999;
-  padding: 8px;
-  text-align: left;
+th,
+td {
+    border: 1px solid #999;
+    padding: 8px;
+    text-align: left;
 }
 
 th {
-  background-color:var(--color-barra);
-  color: white;
+    background-color: var(--color-barra);
+    color: white;
 }
